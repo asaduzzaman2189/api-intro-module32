@@ -7,7 +7,7 @@ function loadData() {
 function loadUsers() {
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
-        .then(data => displayUsers())
+        .then(data => displayUsers(data))
 }
 
 function loadPosts() {
@@ -15,7 +15,15 @@ function loadPosts() {
         .then(res => res.json())
         .then(data => console.log(data))
 }
-// loadPosts();//auto load hobe click na korei
+
 function displayUsers(data) {
-    console.log(data);
+    const ul = document.getElementById('users');
+    // console.log(data);
+    for (const user of data) {
+        console.log(user.name);
+        const li = document.createElement('li');
+        li.innerText = `Name: ${user.name} email: ${user.email}`;
+        ul.appendChild(li);
+    }
 }
+
