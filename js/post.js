@@ -19,6 +19,23 @@ function displayPosts(posts) {
     }
 }
 
+// 404 error দেখানোর জন্য এই ফাংশন তৈরি- http link ভুল দেয়া আছে। 
+function addAPost2() {
+    fetch('https://jsonplaceholder.typicode.com/pusts', {
+        method: 'POST',
+        body: JSON.stringify({
+            title: 'my new post',
+            body: 'This is my posts',
+            userId: 1
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',//এটা কপি করে আনলেই হবে। 
+        }
+    })
+        .then(res => res.json())
+        .then(data => console.log(data))
+}
+
 // post 
 function addAPost() {
     fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -35,3 +52,4 @@ function addAPost() {
         .then(res => res.json())
         .then(data => console.log(data))
 }
+
