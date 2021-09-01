@@ -32,6 +32,6 @@ function addAPost() {
             'Content-type': 'application/json; charset=UTF-8',//এটা কপি করে আনলেই হবে। 
         }
     })
-        .then(res => res.JSON())
+        .then(res => res.json())
         .then(data => console.log(data))
 }
