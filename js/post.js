@@ -3,7 +3,6 @@ function loadPosts() {
         .then(res => res.json())
         .then(data => displayPosts(data))
 }
-
 loadPosts();
 
 function displayPosts(posts) {
@@ -18,4 +17,21 @@ function displayPosts(posts) {
         postContainer.appendChild(div);
         console.log(post);
     }
+}
+
+// post 
+function addAPost() {
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+            title: 'my new post',
+            body: 'This is my posts',
+            userId: 1
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',//এটা কপি করে আনলেই হবে। 
+        }
+    })
+        .then(res => res.JSON())
+        .then(data => console.log(data))
 }
